@@ -10,10 +10,150 @@
 
 <body>
     <pre><code>
-
+            #include &lt;stdio.h&gt;
+            #include &lt;stdlib.h&gt;
+            #include &lt;string.h&gt;
+            #include &lt;time.h&gt;
+            
+            // Function to merge two halves of an array
+            void merge(char *arr[], int left, int mid, int right) 
+            {
+                int i, j, k;
+                int n1 = mid - left + 1;
+                int n2 = right - mid;
+            
+                // Create temporary arrays
+                char **L = (char **)malloc(n1 * sizeof(char *));
+                char **R = (char **)malloc(n2 * sizeof(char *));
+            
+                // Copy data to temporary arrays L[] and R[]
+                for (i = 0; i &lt; n1; i++) {
+                    L[i] = arr[left + i];
+                }
+                for (j = 0; j &lt; n2; j++) {
+                    R[j] = arr[mid + 1 + j];
+                }
+            
+                // Merge the temporary arrays back into 
+                arr[left..right]
+                i = 0;
+                j = 0;
+                k = left;
+            
+                while (i &lt; n1 &amp;&amp; j &lt; n2) {
+                    if (strcmp(L[i], R[j]) &lt;= 0) {
+                        arr[k] = L[i];
+                        i++;
+                    } else {
+                        arr[k] = R[j];
+                        j++;
+                    }
+                    k++;
+                }
+            
+                // Copy the remaining elements of L[], if there 
+                are any
+                while (i &lt; n1) {
+                    arr[k] = L[i];
+                    i++;
+                    k++;
+                }
+            
+                // Copy the remaining elements of R[], if there 
+                are any
+                while (j &lt; n2) {
+                    arr[k] = R[j];
+                    j++;
+                    k++;
+                }
+            
+                // Free temporary arrays
+                free(L);
+                free(R);
+            }
+            
+            // Function to perform recursive merge sort on a 
+            string array
+            void recursiveMergeSort(char *arr[], int left, int 
+            right) {
+                if (left &lt; right) {
+                    // Same as (left + right) / 2, but avoids 
+                    overflow for large left and right
+                    int mid = left + (right - left) / 2;
+            
+                    // Sort first and second halves
+                    recursiveMergeSort(arr, left, mid);
+                    recursiveMergeSort(arr, mid + 1, right);
+            
+                    // Merge the sorted halves
+                    merge(arr, left, mid, right);
+                }
+            }
+            
+            // Function to print a string array
+            void printArray(char *arr[], int n) {
+                for (int i = 0; i &lt; n; i++) {
+                    printf("%s ", arr[i]);
+                }
+                printf("\n");
+            }
+            
+            int main() {
+                int n;
+            
+                printf("Enter the number of strings: ");
+                scanf("%d", &amp;n);
+            
+                // Allocate memory for an array of strings
+                char **arr = (char **)malloc(n * sizeof(char *));
+                for (int i = 0; i &lt; n; i++) {
+                    arr[i] = (char *)malloc(100 * sizeof(char)); 
+                    // Assuming maximum string length is 99
+                }
+            
+                printf("Enter %d strings:\n", n);
+                for (int i = 0; i &lt; n; i++) {
+                    scanf("%s", arr[i]);
+                }
+            
+                // Measure time taken for sorting
+                clock_t start, end;
+            
+                // Best case: Already sorted array
+                start = clock();
+                recursiveMergeSort(arr, 0, n - 1);
+                end = clock();
+                printf("Sorted array in best case:\n");
+                printArray(arr, n);
+                printf("Best case time taken: %f seconds\n", 
+                ((double)(end - start)) / CLOCKS_PER_SEC);
+            
+                // Worst case: Reverse sorted array
+                for (int i = 0; i &lt; n / 2; i++) {
+                    char *temp = arr[i];
+                    arr[i] = arr[n - 1 - i];
+                    arr[n - 1 - i] = temp;
+                }
+            
+                start = clock();
+                recursiveMergeSort(arr, 0, n - 1);
+                end = clock();
+                printf("Sorted array in worst case:\n");
+                printArray(arr, n);
+                printf("Worst case time taken: %f seconds\n", 
+                ((double)(end - start)) / CLOCKS_PER_SEC);
+            
+                // Free allocated memory
+                for (int i = 0; i &lt; n; i++) {
+                    free(arr[i]);
+                }
+                free(arr);
+            
+                return 0;
+            }
         </code></pre>
         <h2>Output:</h2><br>
-    
+        <img src="sort18.png">
 </body>
 
 
