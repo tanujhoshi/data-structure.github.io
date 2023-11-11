@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <pre><code>
+        #include &lt;stdio.h&gt;
+            #include &lt;time.h&gt;
+            
+            void swap(int *a, int *b) {
+                int temp = *a;
+                *a = *b;
+                *b = temp;
+            }
+            
+            void bubbleSort(int arr[], int n) {
+                if (n <= 1) {
+                    return;
+                }
+            
+                for (int i = 0; i < n - 1; i++) {
+                    if (arr[i] > arr[i + 1]) {
+                        swap(&arr[i], &arr[i + 1]);
+                    }
+                }
+            
+                bubbleSort(arr, n - 1);
+            }
+            
+            int main() {
+                int n;
+            
+                printf("Enter the number of elements in the array: ");
+                scanf("%d", &n);
+            
+                int arr[n];
+            
+                printf("Enter the elements of the array:\n");
+                for (int i = 0; i < n; i++) {
+                    scanf("%d", &arr[i]);
+                }
+            
+                clock_t start_time, end_time;
+                
+                start_time = clock();
+                bubbleSort(arr, n);
+                end_time = clock();
+            
+                printf("Sorted array using Bubble Sort:\n");
+                for (int i = 0; i < n; i++) 
+                {
+                    printf("%d ", arr[i]);
+                }
+            
+                double execution_time = (double)(end_time - start_time) / CLOCKS_PER_SEC;
+                printf("\nTime taken for sorting: %f seconds\n", execution_time);
+                int worst_case_comparisons = (n * (n - 1)) / 2;
+                printf("Worst-case time complexity (comparisons): %d\n", worst_case_comparisons);
+                int best_case_comparisons = n - 1;
+                printf("Best-case time complexity (comparisons): %d\n", best_case_comparisons);
+            
+                return 0;
+            }
+        </code></pre>
+        <h2>Output:</h2><br>
+    <img src="sort4.png">
+</body>
+
+
+</html>

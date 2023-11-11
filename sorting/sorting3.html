@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <pre><code>
+        #include &lt;stdio.h&gt;
+            #include &lt;stdlib.h&gt;
+            #include &lt;time.h&gt;
+            
+            void bubbleSort(int arr[], int n) {
+                for (int i = 0; i < n - 1; i++) {
+                    int swapped = 0;
+            
+                    for (int j = 0; j < n - i - 1; j++) {
+                        if (arr[j] > arr[j + 1]) {
+                            int temp = arr[j];
+                            arr[j] = arr[j + 1];
+                            arr[j + 1] = temp;
+                            swapped = 1;
+                        }
+                    }
+                    if (swapped == 0) {
+                        break;
+                    }
+                }
+            }
+            
+            int main() {
+                int n;
+            
+                printf("Enter the number of elements in the array: ");
+                scanf("%d", &n);
+            
+                int arr[n]; 
+                printf("Enter the elements of the array:\n");
+                for (int i = 0; i < n; i++) {
+                    scanf("%d", &arr[i]);
+                }
+            
+                // Calculate the time taken for worst-case (sorted in descending order)
+                clock_t start = clock();
+                bubbleSort(arr, n);
+                printf("Sorted array:\n");
+                for(int i=0;i&lt;n;i++)
+                {
+                    printf("%d\n",arr[i]);
+                }
+                clock_t end = clock();
+                double cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+                printf("Worst-case time: %f seconds\n", cpu_time_used);
+            
+                // Reverse the sorted array to simulate the best-case scenario
+                for (int i = 0; i < n / 2; i++) {
+                    int temp = arr[i];
+                    arr[i] = arr[n - i - 1];
+                    arr[n - i - 1] = temp;
+                }
+            
+                // Calculate the time taken for best-case (already sorted)
+                start = clock();
+                bubbleSort(arr, n);
+                end = clock();
+                cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+                printf("Best-case time: %f seconds\n", cpu_time_used);
+            
+                return 0;
+            }
+        </code></pre>
+        <h2>Output:</h2><br>
+    <img src="sort3.png">
+</body>
+
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <pre><code>
+        #include &lt;stdio.h&gt;
+            #include &lt;stdlib.h&gt;
+            #include &lt;time.h&gt;
+            void selectionSortRecursive(int arr[], int n, int index) {
+                if (index == n - 1) {
+                    return; 
+                }
+            
+                int min_index = index;
+                for (int j = index + 1; j < n; j++) {
+                    if (arr[j] < arr[min_index]) {
+                        min_index = j;
+                    }
+                }
+                int temp = arr[index];
+                arr[index] = arr[min_index];
+                arr[min_index] = temp;
+            
+                selectionSortRecursive(arr, n, index + 1);
+            }
+            
+            int main() {
+                int n;
+            
+                printf("Enter the number of elements in the array: ");
+                scanf("%d", &n);
+            
+                int arr[n];
+                printf("Enter the elements of the array:\n");
+                for (int i = 0; i < n; i++) {
+                    scanf("%d", &arr[i]);
+                }
+            
+                // Calculate the time taken for worst-case (sorted in descending order)
+                clock_t start = clock();
+                selectionSortRecursive(arr, n, 0);
+                printf("Sorted array:\n");
+                for(int i=0;i&lt;n;i++)
+                {
+                    printf("%d\n",arr[i]);
+                }
+                clock_t end = clock();
+                double cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+                printf("Worst-case time: %f seconds\n", cpu_time_used);
+            
+                // Reverse the sorted array to simulate the best-case scenario
+                for (int i = 0; i < n / 2; i++) {
+                    int temp = arr[i];
+                    arr[i] = arr[n - i - 1];
+                    arr[n - i - 1] = temp;
+                }
+            
+                // Calculate the time taken for best-case (already sorted)
+                start = clock();
+                selectionSortRecursive(arr, n, 0);
+                end = clock();
+                cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+                printf("Best-case time: %f seconds\n", cpu_time_used);
+            
+                return 0;
+            }
+        </code></pre>
+        <h2>Output:</h2><br>
+        Enter the number of elements in the array: 9<br>
+        Enter the elements of the array:<br>
+        8<br>
+        9<br>
+        7<br>
+        5<br>
+        6<br>
+        4<br>
+        3<br>
+        2<br>
+        1<br>
+        Sorted array:<br>
+        1<br>
+        2<br>
+        3<br>
+        4<br>
+        5<br>
+        6<br>
+        7<br>
+        8<br>
+        9<br>
+        Worst-case time: 0.000030 seconds<br>
+        Best-case time: 0.000001 seconds<br>
+        
+</body>
+
+
+</html>
