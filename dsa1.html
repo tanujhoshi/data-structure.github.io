@@ -1,0 +1,119 @@
+<html>
+
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+
+        /* Style the buttons inside the tab */
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+            background-color: #008565;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+
+        #main {
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="tab">
+        <Button class="tablinks" onclick="openCity(event, 'Array')">Array</Button>
+        <Button class="tablinks" onclick="openCity(event, '2D Array')">2D Array</Button>
+        <Button class="tablinks" onclick="openCity(event, 'String')">String</Button>
+        <Button class="tablinks" onclick="openCity(event, 'Searching')">Searching</Button>
+        <Button class="tablinks" onclick="openCity(event, 'Sorting')">Sorting</Button>
+        <Button class="tablinks" onclick="openCity(event, 'Recursion')">Recursion</Button>
+        <Button class="tablinks" onclick="openCity(event, 'Stack')">Stack</Button>
+        <Button class="tablinks" onclick="openCity(event, 'Queue')">Queue</Button>
+        <Button class="tablinks" onclick="openCity(event, 'Linked List')">Linked List</Button>
+        <Button class="tablinks" onclick="openCity(event, 'Tree')">Tree</Button>
+        <Button class="tablinks" onclick="openCity(event, 'Graphs')">Graphs</Button>
+    </div>
+    <section id="main">
+        <div>
+            <iframe src="Array.html" title="question bar" height="672" width="383" id="Array"
+                class="tabcontent"></iframe>
+            <iframe src="2DArray.html" title="question bar" height="672" width="383" id="2D Array"
+                class="tabcontent"></iframe>
+            <iframe src="String.html" title="question bar" height="672" width="383" id="String"
+                class="tabcontent"></iframe>
+            <iframe src="Searching.html" title="question bar" height="672" width="383" id="Searching"
+                class="tabcontent"></iframe>
+            <iframe src="Sorting.html" title="question bar" height="672" width="383" id="Sorting"
+                class="tabcontent"></iframe>
+            <iframe src="Recursion.html" title="question bar" height="672" width="383" id="Recursion"
+                class="tabcontent"></iframe>
+            <iframe src="Stack.html" title="question bar" height="672" width="383" id="Stack"
+                class="tabcontent"></iframe>
+            <iframe src="Queue.html" title="question bar" height="672" width="383" id="Queue"
+                class="tabcontent"></iframe>
+            <iframe src="Linked.html" title="question bar" height="672" width="383" id="Linked List"
+                class="tabcontent"></iframe>
+            <iframe src="Tree.html" title="question bar" height="672" width="383" id="Tree" class="tabcontent"></iframe>
+            <iframe src="Graph.html" title="question bar" height="672" width="383" id="Graphs"
+                class="tabcontent"></iframe>
+
+        </div>
+        <div>
+            <iframe src="" height="672" width="1152" name="Ans" id="w1"> </iframe>
+        </div>
+    </section>
+
+
+
+
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+
+</html>
