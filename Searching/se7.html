@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>        <code>
+        
+        #include &lt;stdio.h&gt;  
+    int recursiveBinarySearch(int arr[], int start, int end, int key)    
+    {    
+            int mid;    
+            if(start &lt;= end )     
+            {   mid = (start + end)/2;    
+                if(arr[mid] == key)    
+                {                 
+                    return mid+1;    
+            }    
+            else if(arr[mid] &lt; key)     
+            {  
+                    return recursiveBinarySearch(arr, mid+1, end, key);    
+            }    
+            else     
+            {  
+                    return recursiveBinarySearch(arr, start, mid-1, key);    
+            }              }    
+        return -1;     }   
+    int main() {  
+          int arr[50] ;  
+          int key,size,i,temp;
+          printf("Enter the size of the array: ");
+      scanf("%d",&amp;size);
+     
+      printf("Enter elements of the array(int ascending order:");  
+      for ( i = 0; i &lt; size; i++) { 
+            printf("%dth element ",i);
+        scanf("%d",&amp;arr[i]);}
+      printf("Enter element to be search");
+      scanf("%d",&amp;key);
+      
+      temp=recursiveBinarySearch(arr,0,size-1,key);
+      if (temp == -1)  
+      printf("\nElement is not present in the array");  
+      else  
+      printf("\nElement is present at %d position of array", temp-1);    }  
+            </code>
+        </pre>
+        <h2>Output:</h2><br>
+        <img src="7.png">
+</body>
+</html>
