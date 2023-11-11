@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre><code>
+        #include&lt;stdio.h&gt;
+
+            void main()
+            {
+                int arr[3][3];
+                int value;
+                int i,j;
+                printf("Enter elements of Matrix\n");
+                for(i=0;i&lt;3;i++)
+                {
+                    for(j=0;j&lt;3;j++)
+                    {
+                        printf("array element [%d][%d]",i+1,j+1);
+                        scanf("%d",&arr[i][j]);
+                    }
+                }
+                printf("enter the scalar value by which the given matrix will be multiplied =");
+                scanf("%d",&value);
+                printf("\n matrix multipled by %d is as follows : \n", value);
+                for(i=0;i&lt;3;i++)
+                {
+                    for(j=0;j&lt;3;j++)
+                    {
+                        printf("%d",arr[i][j]*value);
+                    }
+                    printf("\n");
+                }
+            
+            }
+        </code></pre>
+        <h2>Output:</h2><br>
+        
+Enter elements of Matrix<br>
+array element [1][1]1<br>
+array element [1][2]2<br>
+array element [1][3]3<br>
+array element [2][1]4<br>
+array element [2][2]5<br>
+array element [2][3]6<br>
+array element [3][1]7<br>
+array element [3][2]8<br>
+array element [3][3]9<br>
+enter the scalar value by which the given matrix will be multiplied =10<br>
+matrix multipled by 10 is as follows : <br>
+10&nbsp20&nbsp30	<br>
+40&nbsp50&nbsp60	<br>
+70&nbsp80&nbsp90	<br>
+
+</body>
+
+</html>

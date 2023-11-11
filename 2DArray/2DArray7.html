@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre><code>
+        #include &lt;stdio.h&gt;
+
+            void initializeBoard(char board[3][3]) {
+                for (int i = 0; i < 3; i++) {
+                    for (int j = 0; j < 3; j++) {
+                        board[i][j] = ' ';
+                    }
+                }
+            }
+            
+            void printBoard(char board[3][3]) {
+                printf("  1   2   3\n");
+                for (int i = 0; i < 3; i++) {
+                    printf("%d ", i + 1);
+                    for (int j = 0; j < 3; j++) {
+                        printf("%c", board[i][j]);
+                        if (j < 2) {
+                            printf(" | ");
+                        }
+                    }
+                    printf("\n");
+                    if (i < 2) {
+                        printf("  ---|---|---\n");
+                    }
+                }
+                printf("\n");
+            }
+            
+            int isGameOver(char board[3][3]) {
+                // Check rows
+                for (int i = 0; i < 3; i++) {
+                    if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != ' ') {
+                        return 1;
+                    }
+                }
+                
+                // Check columns
+                for (int j = 0; j < 3; j++) {
+                    if (board[0][j] == board[1][j] && board[1][j] == board[2][j] && board[0][j] != ' ') {
+                        return 1;
+                    }
+                }
+                
+                // Check diagonals
+                if ((board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != ' ') ||
+                    (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] != ' ')) {
+                    return 1;
+                }
+                
+                for (int i = 0; i < 3; i++) {
+                    for (int j = 0; j < 3; j++) {
+                        if (board[i][j] == ' ') {
+                            return 0;
+                        }
+                    }
+                }
+                
+                return -1;
+            }
+            
+            int main() {
+                char board[3][3];
+                int currentPlayer = 1;
+                int row, col;
+                int gameState = -1;
+            
+                initializeBoard(board);
+            
+                while (gameState == -1) {
+                    printBoard(board);
+            
+                    printf("Player %d, enter row and column (1-3): ", currentPlayer);
+                    scanf("%d %d", &row, &col);
+            
+                    if (row < 1 || row > 3 || col < 1 || col > 3 || board[row - 1][col - 1] != ' ') {
+                        printf("Invalid move. Try again.\n");
+                    } else {
+                        board[row - 1][col - 1] = (currentPlayer == 1) ? 'X' : 'O';
+                        currentPlayer = (currentPlayer % 2) + 1;
+                        gameState = isGameOver(board);
+                    }
+                }
+            
+                printBoard(board);
+            
+                if (gameState == 0) {
+                    printf("It's a tie!\n");
+                } else {
+                    printf("Player %d wins!\n", currentPlayer);
+                }
+            
+                return 0;
+            }
+        </code></pre>
+        <h2>Output:</h2><br>
+        <pre> Welcome to Tic-Tac-Toe!
+
+            |   |  
+         ---+---+---
+            |   |  
+         ---+---+---
+            |   |  
+         
+         Player X, enter your move (row and column): 1 1
+         
+            |   |
+         ---+---+---
+            | X |
+         ---+---+---
+            |   |
+         
+         Player O, enter your move (row and column): 0 0
+         
+          O |   |  
+         ---+---+---
+            | X |  
+         ---+---+---
+            |   |  
+         
+         Player X, enter your move (row and column): 1 0
+         
+          O |   |
+         ---+---+---
+          X | X |
+         ---+---+---
+            |   |
+         
+         Player O, enter your move (row and column): 0 1
+         
+          O | O |
+         ---+---+---
+          X | X |
+         ---+---+---
+         Player X, enter your move (row and column): 1 2
+         
+          O | O |
+         ---+---+---
+          X | X | X
+         ---+---+---
+            |   |
+         
+         Player X wins!
+             </pre>
+</body>
+
+</html>

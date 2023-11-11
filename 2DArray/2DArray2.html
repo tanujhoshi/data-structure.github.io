@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+  <h2>Code:</h2>
+    <pre><code>
+        #include &lt;stdio.h&gt;
+            int main() {
+              int a[3][2], b[3][2], sum[3][2], i, j;
+             
+            
+              printf("\nEnter elements of 1st matrix:\n");
+              for (i = 0; i < 3; ++i)
+                for (j = 0; j < 2; ++j) {
+                  printf("Enter element a%d%d: ", i + 1, j + 1);
+                  scanf("%d", &a[i][j]);
+                }
+            
+              printf("Enter elements of 2nd matrix:\n");
+              for (i = 0; i < 3; ++i)
+                for (j = 0; j < 2; ++j) {
+                  printf("Enter element b%d%d: ", i + 1, j + 1);
+                  scanf("%d", &b[i][j]);
+                }
+            
+              for (i = 0; i < 3; ++i)
+                for (j = 0; j < 2; ++j) {
+                  sum[i][j] = a[i][j] + b[i][j];
+                }
+            
+              printf("\nSum of two matrices: \n");
+              for (i = 0; i < 3; ++i)
+                for (j = 0; j < 2; ++j) {
+                  printf("%d   ", sum[i][j]);
+                  if (j == 2 - 1) {
+                    printf("\n\n");
+                  }
+                }
+            
+              return 0;
+            }
+        </code></pre>
+        <h2>Output:</h2><br>
+Enter elements of 1st matrix:<br>
+Enter element a11: 1<br>
+Enter element a12: 2<br>
+Enter element a21: 3<br>
+Enter element a22: 4<br>
+Enter element a31: 5<br>
+Enter element a32: 6<br>
+Enter elements of 2nd matrix:<br>
+Enter element b11: 5<br>
+Enter element b12: 6<br>
+Enter element b21: 7<br>
+Enter element b22: 8<br>
+Enter element b31: 9<br>
+Enter element b32: 2<br>
+Sum of two matrices: <br>
+6 &nbsp  8   <br>
+<br>
+10 &nbsp  12<br>   
+<br>
+14 &nbsp  8<br>   
+
+
+</body>
+
+</html>

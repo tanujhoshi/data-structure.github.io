@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre><code>
+        #include&lt;stdio.h&gt;
+
+            void main()
+            {
+                int ar[3][3];
+                int newar[3][3];
+                int i,j;
+                for(i=0;i&lt;3;i++)
+                {
+                    for(j=0;j&lt;3;j++)
+                    {
+                        printf("array element[%d][%d]",i+1,j+1);
+                        scanf("%d",&ar[i][j]);
+                    }
+                }
+                //copying it another matrix
+                for(i=0;i&lt;3;i++)
+                {
+                    for(j=0;j&lt;3;j++)
+                    {
+                        newar[i][j]=ar[i][j];
+                    }
+            }
+            //display the copied array elements
+            for(i=0;i&lt;3;i++)
+            {
+                for(j=0;j&lt;3;j++)
+                {
+                    printf("     %d      ",newar[i][j]);
+                }
+                printf("\n");
+            }
+            }
+            
+        </code></pre>
+        <h2>Output:</h2><br>
+        <img src="D5.png">
+</body>
+
+</html>
