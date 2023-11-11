@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre><code>
+        #include&lt;stdio.h&gt;
+            #include&lt;string.h&gt;
+            
+            int main()
+            {
+                 char str[100];
+                 char str2;
+                 int i , bound , len;
+                 printf("Enter a string:  ");
+                 gets(str);
+                 printf("enter a chracter:  ");
+                 scanf("%c",&str2);
+                 len=strlen(str);
+                 for(i=0;i&lt;len;i++)
+                 {
+                    if(str[i]==str2)
+                    {
+                        printf("FOUND , it exist");
+                    }
+                 }
+                 if(i==len)
+                 {
+                    printf("NOT FOUND , it does not exist");
+                 }
+            }
+        </code></pre>
+        <h2>Output:</h2><br>
+        
+        Enter a string : hello world<br>
+        enter a character : l<br>
+        FOUND , it exist<br>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre><code>
+        #include&lt;stdio.h&gt;
+        #include&lt;string.h&gt;
+            void main()
+            {
+                char str[100];
+                int i,bound;
+                int index;
+                printf("Enter a string : ");
+                gets(str);
+               printf("enter bound number");
+               scanf("%d",&bound);
+               
+               if(bound>=0 && bound<strlen(str))
+               {
+                printf("character on %d bound is %c",bound,str[bound]);
+               }
+                else{
+                printf("bound number should always be more than or equal to zero and less than your sentance length");
+                printf("\nINVALID BOUND NUMBER");
+                }
+            }
+        </code></pre>
+        <h2>Output:</h2><br>
+        <pre>Enter a string: anjali
+            Length of the entered string is: 6
+            Enter an index:(It should be between 0 and string length (i.e 5))3
+            Character at index 3: a
+            
+                </pre>
+</body>
+
+</html>

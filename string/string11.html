@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre><code>
+        #include&lt;stdio.h&gt;
+        #include&lt;string.h&gt;
+            
+            void main()
+            {
+                char str[100];
+                char str2[100];
+                printf("enter any string");
+                gets(str);
+                strcpy(str2,str);
+                strrev(str);
+                if(strcmp(str,str2)==0)
+                {
+                printf("PALINDROME");
+                }
+                else{
+                    printf("NOT A PALINDROME");
+                }
+            }
+        </code></pre>
+        <h2>Output:</h2><br>
+        <pre>        <code>
+            enter any string
+            abcba
+            NOT A PALINDROME
+        </code>
+    </pre>
+</body>
+
+</html>

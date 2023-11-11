@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre><code>
+        #include&lt;stdio.h&gt;
+            #include&lt;string.h&gt;
+            
+            int main() {
+                char text[100];
+                int alignment;
+            
+                printf("Enter a string: ");
+                fgets(text, sizeof(text), stdin);
+            
+                text[strcspn(text, "\n")] = '\0';
+            
+                printf("Choose text alignment (1 for left, 2 for center, 3 for right): ");
+                scanf("%d", &alignment);
+            
+                int len = strlen(text);
+                switch (alignment) {
+                    case 1: // Left
+                        printf("%s\n", text);
+                        break;
+                    case 2: // Center 
+                        for (int i = 0; i < (40 - len / 2); i++) {
+                            printf(" ");
+                        }
+                        printf("%s\n", text);
+                        break;
+                    case 3: // Right 
+                        for (int i = 0; i < (80 - len); i++) {
+                            printf(" ");
+                        }
+                        printf("%s\n", text);
+                        break;
+                    default:
+                        printf("Invalid alignment choice.\n");
+                }
+            
+                return 0;
+            }
+        </code></pre>
+        <h2>Output:</h2><br>
+        Enter a string: tanuja joshi <br>
+        Choose text alignment (1 for left, 2 for center, 3 for right): 2<br>
+                                          tanuja joshi<br>
+        
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <pre><>
+       
+            #include &lt;stdio.h&gt;
+                #include &lt;string.h&gt;
+                
+                int splitWordsAndGetIndex(const char* str, char* firstWord, char* secondWord) {
+                    int i = 0;
+                    int firstWordLength = 0;
+                
+                    // Find the start of the first word and copy it to firstWord
+                    while (str[i] != ' ' &amp;&amp; str[i] != '\0') {
+                        firstWord[i] = str[i];
+                        firstWordLength++;
+                        i++;
+                    }
+                    firstWord[i] = '\0'; // Null-terminate the first word
+                
+                    // Skip spaces between the words
+                    while (str[i] == ' ') {
+                        i++;
+                    }
+                
+                    // Copy the second word to secondWord
+                    int secondWordIndex = i;
+                    while (str[i] != ' ' &amp;&amp; str[i] != '\0') {
+                        secondWord[i - secondWordIndex] = str[i];
+                        i++;
+                    }
+                    secondWord[i - secondWordIndex] = '\0'; // Null-terminate the second word
+                
+                    return secondWordIndex;
+                }
+                
+                int main() {
+                    char str[100]; // Assuming a string of up to 100 characters
+                    char firstWord[50];
+                    char secondWord[50];
+                    int secondWordIndex;
+                
+                    printf("Enter a string with two words: ");
+                    fgets(str, sizeof(str), stdin); // Read a line of text, including spaces
+                
+                    secondWordIndex = splitWordsAndGetIndex(str, firstWord, secondWord);
+                
+                    printf("First Word: \"%s\"\n", firstWord);
+                    printf("Second Word: \"%s\"\n", secondWord);
+                    printf("Starting Index of Second Word: %d\n", secondWordIndex);
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;0;
+                }
+                
+        
+        </code></pre>
+        <h2>Output:</h2><br>
+        <pre>Enter a string with two words: anjali bibra
+            First Word: "anjali"
+            Second Word: "bibra"
+            Starting Index of Second Word: 7
+            
+                </pre>
+</body>
+
+
+</html>

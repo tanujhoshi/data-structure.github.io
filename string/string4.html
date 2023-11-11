@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre><code>
+        #include&lt;stdio.h&gt;
+            #include&lt;conio.h&gt;
+            #include&lt;string.h&gt;
+            void main()
+            {
+            char str[100];
+            int i;
+            clrscr();
+            printf("enter a sentence:");
+            gets(str);
+            for(i=0;str[i];i++)
+            {
+            if(str[i]==32)
+            {str[i+1]=toupper(str[i+1]);
+            }
+            }
+            str[0]=toupper(str[0]);
+            printf("sentence in title case:");
+            printf("%s",str);
+            getch();
+            }
+            
+        </code></pre>
+        <H2>Output:</H2><br>
+        <img src="4.png">
+</body>
+
+</html>

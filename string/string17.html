@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre><code>
+        #include&lt;stdio.h&gt;
+        #include&lt;string.h&gt;
+            
+            void main()
+            {
+                char str[100];
+                int i,count;
+                count=0;
+                printf("Enter the string: ");
+                gets(str);
+                strupr(str);
+                printf("%s",str);
+                for(i=0;str[i];i++)
+                {
+                    if(str[i]=='A' || str[i]=='E' || str[i]=='I' || str[i]=='O' || str[i]=='U')
+                    {
+                       count=count+1;
+                    }
+                }
+                if(count!=0)
+                {
+                printf("\nThe number of vowels in given word is %d",count);
+                }
+                else
+                {
+                    printf("\nNo Vowel found");
+                }
+            }
+        </code></pre>
+        <h2>Output:</h2><br>
+        Enter the string: hello world<br>
+        HELLO WORLD<br>
+        The number of vowels in given word is 3<br>
+</body>
+
+</html>

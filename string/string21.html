@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre><code>
+        #include &lt;stdio.h&gt;
+            #include&lt;string.h&gt;
+            void permute(char str[], int currentIndex, int length) {
+                if (currentIndex == length) {
+                    printf("%s\n", str);
+                    return;
+                }
+            
+                for (int i = currentIndex; i <= length; i++) {
+                    // Swap characters
+                    char temp = str[currentIndex];
+                    str[currentIndex] = str[i];
+                    str[i] = temp;
+            
+                    permute(str, currentIndex + 1, length);
+            
+                    temp = str[currentIndex];
+                    str[currentIndex] = str[i];
+                    str[i] = temp;
+                }
+            }
+            
+            void main() {
+                char str[100];
+                printf("Enter a string: ");
+                scanf("%s", str);
+                int n = strlen(str);
+                printf("Permutations of the string are:\n");
+                permute(str, 0, n - 1);
+            }
+        </code></pre>
+        <h2>Output:</h2><br>
+        Enter a string: ABCD<br>
+        Permutations of the string are:<br>
+        ABDC<br>
+        ACBD<br>
+        ADCB<br>
+        BACD<br>
+        BADC<br>
+        BCAD<br>
+        BCDA<br>
+        CABD<br>
+        CADB<br>
+        CDAB<br>
+        DABC<br>
+        DBCA<br>
+        DCBA<br>
+</body>
+
+</html>
