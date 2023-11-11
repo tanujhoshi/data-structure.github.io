@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            #include&lt;stdio.h&gt;
+            #include&lt;string.h&gt;
+                
+                int binarySearchRecursive(char arr[], char target, int left, int right) {
+                    if (left > right) {
+                        return -1; 
+                    }
+                
+                    int middle = (left + right) / 2;
+                
+                    if (arr[middle] == target) {
+                        return middle; 
+                    } else if (arr[middle] < target) {
+                        return binarySearchRecursive(arr, target, middle + 1, right);
+                    } else {
+                        return binarySearchRecursive(arr, target, left, middle - 1);
+                    }
+                }
+                
+                int main() {
+                    char inputString[100];
+                    char searchChar;
+                
+                    printf("Enter a sorted string: ");
+                    scanf("%s", inputString);
+                
+                    printf("Enter a character to search: ");
+                    scanf(" %c", &searchChar); 
+                
+                    int length = strlen(inputString);
+                    int result = binarySearchRecursive(inputString, searchChar, 0, length - 1);
+                
+                    if (result != -1) {
+                        printf("Character '%c' found at position %d in the string.\n", searchChar, result+1);
+                    } else {
+                        printf("Character '%c' not found in the string.\n", searchChar);
+                    }
+                
+                    return 0;
+                }
+        </code>
+    </pre>
+    <h2>Output:</h2><br>
+    <img src="6.png">
+</body>
+</html>

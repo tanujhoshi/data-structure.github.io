@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+        <code>
+                #include &lt;stdio.h&gt;
+                    #include &lt;stdlib.h&gt;
+                    
+                    struct Node {
+                        int data;
+                        struct Node *next;
+                    };
+                    
+                    typedef struct Node Node;
+                    
+                    Node *start = NULL;
+                    
+                    // Function to insert a node at the beginning
+                    void insertAtBegin(int value) {
+                        Node *newNode = (Node *)malloc(sizeof(Node));
+                        newNode-&gt;data = value;
+                    
+                        if (start == NULL) {
+                            start = newNode;
+                            newNode-&gt;next = start;
+                        } else {
+                            newNode-&gt;next = start-&gt;next;
+                            start-&gt;next = newNode;
+                        }
+                    }
+                    
+                    // Function to insert a node at a specific position
+                    void insertAtPos(int value, int pos) {
+                        if (pos &lt; 1) {
+                            printf("Invalid position.\n");
+                            return;
+                        }
+                    
+                        Node *newNode = (Node *)malloc(sizeof(Node));
+                        newNode-&gt;data = value;
+                    
+                        if (start == NULL) {
+                            start = newNode;
+                            newNode-&gt;next = start;
+                        } else if (pos == 1) {
+                            newNode-&gt;next = start-&gt;next;
+                            start-&gt;next = newNode;
+                        } else {
+                            Node *temp = start-&gt;next;
+                            for (int i = 1; i &lt; pos - 1 &amp;&amp; temp != start; i++) {
+                                temp = temp-&gt;next;
+                            }
+                            if (temp == start) {
+                                printf("Position out of bounds.\n");
+                            } else {
+                                newNode-&gt;next = temp-&gt;next;
+                                temp-&gt;next = newNode;
+                            }
+                        }
+                    }
+                    
+                    // Function to insert a node at the end
+                    void insertAtEnd(int value) {
+                        Node *newNode = (Node *)malloc(sizeof(Node));
+                        newNode-&gt;data = value;
+                    
+                        if (start == NULL) {
+                            start = newNode;
+                            newNode-&gt;next = start;
+                        } else {
+                            newNode-&gt;next = start-&gt;next;
+                            start-&gt;next = newNode;
+                            start = newNode;
+                        }
+                    }
+                    
+                    // Function to delete a node from the beginning
+                    void deleteAtBegin() {
+                        if (start == NULL) {
+                            printf("List is empty.\n");
+                        } else {
+                            Node *temp = start-&gt;next;
+                            if (temp == start) {
+                                start = NULL;
+                            } else {
+                                start-&gt;next = temp-&gt;next;
+                            }
+                            free(temp);
+                        }
+                    }
+                    
+                    // Function to delete a node from the end
+                    void deleteAtEnd() {
+                        if (start == NULL) {
+                            printf("List is empty.\n");
+                        } else {
+                            Node *temp = start-&gt;next;
+                            Node *prev = start;
+                    
+                            if (temp == start) {
+                                start = NULL;
+                            } else {
+                                while (temp-&gt;next != start) {
+                                    prev = temp;
+                                    temp = temp-&gt;next;
+                                }
+                                prev-&gt;next = start;
+                            }
+                            free(temp);
+                        }
+                    }
+                    
+                    // Function to delete a node from a specific position
+                    void deleteAtPos(int pos) {
+                        if (start == NULL) {
+                            printf("List is empty.\n");
+                        } else if (pos == 1) {
+                            deleteAtBegin();
+                        } else {
+                            Node *temp = start-&gt;next;
+                            Node *prev = start;
+                    
+                            for (int i = 1; i &lt; pos &amp;&amp; temp != start; i++) {
+                                prev = temp;
+                                temp = temp-&gt;next;
+                            }
+                    
+                            if (temp == start) {
+                                printf("Position out of bounds.\n");
+                            } else {
+                                prev-&gt;next = temp-&gt;next;
+                                free(temp);
+                            }
+                        }
+                    }
+                    
+                    // Function to check if the list is empty
+                    int isEmpty() {
+                        return start == NULL;
+                    }
+                    
+                    // Function to display the linked list
+                    void display() {
+                        if (start == NULL) {
+                            printf("List is empty.\n");
+                        } else {
+                            Node *temp = start-&gt;next;
+                            do {
+                                printf("%d -&gt; ", temp-&gt;data);
+                                temp = temp-&gt;next;
+                            } while (temp != start);
+                            printf("\n");
+                        }
+                    }
+                    
+                    // Function to search for a value in the list
+                    int search(int value) {
+                        if (start == NULL) {
+                            return 0; // List is empty
+                        } else {
+                            Node *temp = start-&gt;next;
+                            do {
+                                if (temp-&gt;data == value) {
+                                    return 1; // Value found
+                                }
+                                temp = temp-&gt;next;
+                            } while (temp != start);
+                            return 0; // Value not found
+                        }
+                    }
+                    
+                    int main() {
+                        int ch, value, pos;
+                        printf("Press 1: Insert at the Beginning\n");
+                        printf("Press 2: Insert at a Specific Position\n");
+                        printf("Press 3: Insert at the End\n");
+                        printf("Press 4: Delete from the Beginning\n");
+                        printf("Press 5: Delete from the End\n");
+                        printf("Press 6: Delete from a Specific Position\n");
+                        printf("Press 7: Check if List is Empty\n");
+                        printf("Press 8: Display List\n");
+                        printf("Press 9: Search for a Value\n");
+                        printf("Press 10: Exit the Code\n");
+                    
+                        while (1) {
+                            printf("Enter your choice: ");
+                            scanf("%d", &amp;ch);
+                    
+                            switch (ch) {
+                                case 1:
+                                    printf("Enter value: ");
+                                    scanf("%d", &amp;value);
+                                    insertAtBegin(value);
+                                    break;
+                                case 2:
+                                    printf("Enter value: ");
+                                    scanf("%d", &amp;value);
+                                    printf("Enter position: ");
+                                    scanf("%d", &amp;pos);
+                                    insertAtPos(value, pos);
+                                    break;
+                                case 3:
+                                    printf("Enter value: ");
+                                    scanf("%d", &amp;value);
+                                    insertAtEnd(value);
+                                    break;
+                                case 4:
+                                    deleteAtBegin();
+                                    break;
+                                case 5:
+                                    deleteAtEnd();
+                                    break;
+                                case 6:
+                                    printf("Enter position: ");
+                                    scanf("%d", &amp;pos);
+                                    deleteAtPos(pos);
+                                    break;
+                                case 7:
+                                    if (isEmpty()) {
+                                        printf("List is empty.\n");
+                                    } else {
+                                        printf("List is not empty.\n");
+                                    }
+                                    break;
+                                case 8:
+                                    display();
+                                    break;
+                                case 9:
+                                    printf("Enter value to search: ");
+                                    scanf("%d", &amp;value);
+                                    if (search(value)) {
+                                        printf("Value found in the list.\n");
+                                    } else {
+                                        printf("Value not found in the list.\n");
+                                    }
+                                    break;
+                                case 10:
+                                    printf("Exiting the code.\n");
+                                    exit(0);
+                                default:
+                                    printf("Invalid choice.\n");
+                            }
+                        }
+                    
+                        return 0;
+                    }
+                           
+        
+        </code>
+        <h2>Output:</h2><br>
+    <pre>
+        single Circular Linked List Operations:
+        1. Insert at the beginning
+        2. Insert at a specific position
+        3. Insert at the end
+        4. Delete from the beginning
+        5. Delete from the end
+        6. Delete from a specific position
+        7. Check if the list is empty
+        8. Display the list
+        9. Search for an element
+        10. Exit
+        Enter your choice: 1
+        Enter the value to insert: 10
+        10 inserted at the beginning.
+        
+        Single Circular Linked List Operations:
+        1. Insert at the beginning
+        2. Insert at a specific position
+        3. Insert at the end
+        4. Delete from the beginning
+        5. Delete from the end
+        6. Delete from a specific position
+        7. Check if the list is empty
+        8. Display the list
+        9. Search for an element
+        10. Exit
+        Enter your choice: 1
+        Enter the value to insert: 100
+        100 inserted at the beginning.
+        
+        Single Circular Linked List Operations:
+        1. Insert at the beginning
+        2. Insert at a specific position
+        3. Insert at the end
+        4. Delete from the beginning
+        5. Delete from the end
+        6. Delete from a specific position
+        7. Check if the list is empty
+        8. Display the list
+        9. Search for an element
+        10. Exit
+        Enter your choice: 8
+        List elements: 100 -> 10 -> NULL
+        
+        Single Circular Linked List Operations:
+        1. Insert at the beginning
+        2. Insert at a specific position
+        3. Insert at the end
+        4. Delete from the beginning
+        5. Delete from the end
+        6. Delete from a specific position
+        7. Check if the list is empty
+        8. Display the list
+        9. Search for an element
+        10. Exit
+        Enter your choice: 10
+        Exiting the program.
+        
+    </pre>Exiting the program.
+
+    </p>
+</body>
+
+</html>

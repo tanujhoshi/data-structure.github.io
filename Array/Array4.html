@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <pre><code>
+        #include&lt;stdio.h&gt;
+        void main()
+        {
+            int ar[10];
+            int arr[10];
+            int i,j;
+            printf("enter an array of 10 elements");
+            for(i=0;i&lt;10;i++)
+            {
+                scanf("%d",&ar[i]);
+            }
+            for(i=0;i&lt;10;i++)
+            {
+                for(j=9-i;j>=0;j--)
+                {
+                    arr[j]=ar[i];
+                }
+            }
+            printf(" array in reverse");
+            for(i=0;i&lt;10;i++)
+            {
+                printf("%d \t",arr[i]);
+    }
+        }
+        </code></pre>
+        <h2>Output:</h2><br>
+    <img src="4.png">
+</body>
+
+</html>

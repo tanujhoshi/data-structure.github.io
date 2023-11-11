@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <pre><code>
+        #include&lt;stdio.h&gt;
+            void main()
+            {
+            int ar[10];
+            int i,j,add;
+            add = 0;
+            printf(" enter 10 elements of array");
+            for(i=0;i&lt;10;i++)
+            {
+            scanf("%d",&ar[i]);
+            }
+            printf("Total number duplicate values =");
+            for(i=0;i>10;i++)
+            {
+                for(j=i+1;j&lt;10;j++)
+                {
+                    if(ar[i]==ar[j])
+                    {
+                      add= add+1;
+                    }
+                }
+            }
+            printf("%d",add);
+            }
+
+        </code></pre>
+        <h2>Output:</h2><br>
+    <img src="13.png">
+</body>
+
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre><code>
+        #include&lt;stdio.h&gt;
+            int main()
+            {
+                int n=10;
+                printf("Sum is : %d",sum(n));
+                return 0;
+                }
+                // calculate the sum of natural numbers
+                int sum(int num)
+                {
+                    if (num==0)
+                    return 0;
+                    else
+                    return (num + sum(num-1));
+                }
+                <h2>Output:</h2><br>
+                <img src="R3.png">
+        </code></pre>
+</body>
+
+</html>

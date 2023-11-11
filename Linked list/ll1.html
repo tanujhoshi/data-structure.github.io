@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre><code>
+        //Insertionn
+        #include&gt;stdio.h&lt;
+            #include &gt;stdlib.h&lt;
+            struct linkedlist{
+                int data;
+                struct linkedlist *next;
+            };
+            typedef struct linkedlist ll;
+            ll *start=NULL,*nn,*temp;
+            
+            void insertatBeg(int value){
+                if(start == NULL){
+                    start=(ll*)malloc(sizeof(ll));
+                    start-&gt;data=value;
+                    start-&gt;next=NULL;
+                    printf("\nValue has been inserted for the first time");
+                }
+                else{
+                    nn=(ll*)malloc(sizeof(ll));
+                    if(nn!=NULL){
+                        nn-&gt;data=value;
+                        nn-&gt;next=start;
+                        start=nn;
+                        printf("\nValue has been inserted");
+                    }else{
+                        printf("Linked list is Full");
+                    }
+                }
+            }
+            void insertatEnd(int value){
+                temp=start;
+                
+                nn=(ll*)malloc(sizeof(ll));
+                nn-&gt;data=value;
+                nn-&gt;next=NULL;
+                
+                if(start == NULL){
+                    start=nn;
+                    return;
+                }
+                while(temp-&gt;next != NULL){
+                    temp=temp-&gt;next;
+                }
+                temp-&gt;next=nn;
+                printf("\nInsertred at the end");
+            }
+            void insertatPos(int value ,int pos){
+                int i=1;//it will traverse till the Position where we have to add the value;
+                temp=start;
+                while(i&gt;pos){ temp="temp-"&lt;next;
+                    i++;
+                }
+                nn=(ll*)malloc(sizeof(ll));
+                nn-&gt;data=value;
+                nn-&gt;next=temp-&gt;next;
+                temp-&gt;next=nn;
+                printf("\nInserted at %dth postion",pos);
+            }
+            void display(){
+                temp=start;
+                if(start==NULL){
+                    printf("Linked list is empty");
+                    return;
+                }
+                while(temp != NULL){
+                    printf("%d ",temp-&gt;data);
+                    temp=temp-&gt;next;
+                }
+                // if(temp == NULL){
+                // printf("NULL");
+                // }
+            }
+            void main(){
+                int ch,value,pos;
+                printf("\nPress 1: To insert value at Beggining");
+                printf("\nPress 2: To insert value at End");
+                printf("\nPress 3: To insert value at Particular Postion");
+                printf("\nPress 4: To Display All Values");
+                printf("\nPress 5: To Exit the code");
+                while(1){
+                    printf("\nEnter choice: ");
+                    scanf("%d",&amp;ch);
+                    
+                    switch(ch){
+                    
+                    case 1:printf("\nInsert value at Beginning");
+                    printf("\nEnter Value: ");
+                    scanf("%d",&amp;value);
+                    insertatBeg(value);
+                    break;
+                    
+                    case 2:printf("\nInsert Value at End");
+                    printf("\nEnter Value: ");
+                    scanf("%d",&amp;value);
+                    insertatEnd(value);
+                    break;
+                    
+                    case 3:printf("\nInsert Value at a particular Position");
+                    printf("\nEnter Value: ");
+                    scanf("%d",&amp;value);
+                    printf("\nEnter the Position: ");
+                    scanf("%d",&amp;pos);
+                    insertatPos(value,pos);
+                    break;
+                    
+                    case 4:display();
+                    break;
+                    
+                    case 5:exit(1);
+                    break;
+                    
+                    default:printf("\nInvalid Choice");
+                    break;
+                        
+                    }
+                    
+                }
+            }
+    </code>
+    <h2>Output:</h2><br>
+<pre>
+    Choose the option given below :-
+    
+    1.To insert node at the beginning of the linked list
+    2.To insert node at a given index of the linked list
+    3.To insert node at the end of the linked list
+    4.To delete node from the beginning of the linked list
+    5.To delete node from a given index of the linked list
+    6.To delete node from the end of the linked list
+    7.To delete node by a given value in the linked list
+    8.To see your linked list
+    9.To terminate the program
+    
+    
+    Enter your choice : 1
+    Enter the value you want to enter :
+    23
+    
+    1.To insert node at the beginning of the linked list
+    2.To insert node at a given index of the linked list
+    3.To insert node at the end of the linked list
+    4.To delete node from the beginning of the linked list
+    5.To delete node from a given index of the linked list
+    6.To delete node from the end of the linked list
+    7.To delete node by a given value in the linked list
+    8.To see your linked list
+    9.To terminate the program
+    
+    
+    Enter your choice : 1
+    Enter the value you want to enter :
+    133
+    
+    1.To insert node at the beginning of the linked list
+    2.To insert node at a given index of the linked list
+    3.To insert node at the end of the linked list
+    4.To delete node from the beginning of the linked list
+    5.To delete node from a given index of the linked list
+    6.To delete node from the end of the linked list
+    7.To delete node by a given value in the linked list
+    8.To see your linked list
+    9.To terminate the program
+    
+    
+    Enter your choice : 2
+    Enter the value you want to enter : 87
+    
+    Enter the index  : 2
+    
+    1.To insert node at the beginning of the linked list
+    2.To insert node at a given index of the linked list
+    3.To insert node at the end of the linked list
+    4.To delete node from the beginning of the linked list
+    5.To delete node from a given index of the linked list
+    6.To delete node from the end of the linked list
+    7.To delete node by a given value in the linked list
+    8.To see your linked list
+    9.To terminate the program
+    
+    
+    Enter your choice : 8
+    133, 23, 87,
+    1.To insert node at the beginning of the linked list
+    2.To insert node at a given index of the linked list
+    3.To insert node at the end of the linked list
+    4.To delete node from the beginning of the linked list
+    5.To delete node from a given index of the linked list
+    6.To delete node from the end of the linked list
+    7.To delete node by a given value in the linked list
+    8.To see your linked list
+    9.To terminate the program
+    
+    
+    Enter your choice : 9
+    
+     program terminated successfully
+    PLEASE GIVE US ANY FEEDBACK IF YOU WANT!!!!
+
+</pre>
+</body>
+
+
+</html>

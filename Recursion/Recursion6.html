@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre><code>
+        #include&lt;stdio.h&gt;
+            //find the smallest element in the integer array using recursion
+            int min(int arr[], int n)
+            {
+                if (n == 1) 
+                {
+                    return arr[0];
+                } else 
+                    {
+                        if (arr[n-1] < min(arr, n - 1)) {
+                            return arr[n-1];
+                    } else 
+                    {
+                        return min(arr, n - 1);
+                    }
+                    }
+            }
+                    int main()
+                    {
+                                    int arr[10];
+                                    printf("Enter elements of array: ");
+                                    for (int i = 0; i < 10; i++)
+                                    scanf("%d", &arr[i]);
+                                    printf("\nSmallest element is %d\n", min(arr, 10));
+                                    return 0;
+                                    } 
+                                    <h2>Output:</h2><br>
+                                    <img src="R6.png">               
+    </code></pre>
+</body>
+
+</html>

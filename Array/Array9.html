@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <pre><code>
+        #include&lt;stdio.h&gt;
+        void main()
+        {
+        int ar[10];
+        int i,j,temp;
+        int k; // k is used to take value from user for the kth highest number
+        jump:
+        printf(" enter 10 elements of array");
+        for(i=0;i&lt;10;i++)
+        {
+        scanf("%d",&ar[i]);
+        }
+        printf(" enter any number from 0-9 for the k-th highst number");
+        scanf("%d",&k);
+        for(i=0;i&lt;10;i++)
+        {
+            for(j=i+1;j&lt;10;j++)
+            {
+                if(ar[i]&lt;ar[j]) //desc order so that the highest no come in the 0th index
+                {
+                    temp = ar[i];
+                    ar[i]=ar[j];
+                    ar[j]=temp;
+                }
+            }
+        }
+         printf("\n");
+        if(k>=0 && k<=9)
+        {
+            printf(" the %d highest number is %d",k,ar[k-1]);
+        }
+        else
+        {
+        printf(" invalid number given");
+        goto jump;
+        }
+        }
+        </code></pre>
+        <h2>Output:</h2><br>
+    <img src="9.png">
+</body>
+
+
+</html>

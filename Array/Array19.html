@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <pre> <code>
+    
+    #include &lt;stdio.h&gt;
+        void main()
+        {
+    
+            int ar[10];
+            int i,j,k;
+            printf("enter 10 elements of the array");
+            for(i=0;i&lt;10;i++)
+            {
+                printf("enter %d  element of the array ", i);
+                scanf("%d",&amp;ar[i]);
+            }
+            for(i=0;i&lt;10;i++)
+            {
+                for(j=i-1;j==i-1;j++)
+                {
+                    for(k=i+1;k==i+1;k++)
+                    {
+                        if ((ar[i])&gt;ar[j] &amp;&amp; ar[i]&gt;ar[j])
+                        {
+                            printf("local maxima is %d",ar[i]);
+                        }
+    
+                    }
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+        &nbsp;&nbsp;&nbsp;&nbsp;}
+        }
+</code>
+    </pre>
+
+    <h2>Output:</h2><br>
+    <pre>enter 10 elements of the arrayenter 0  element of the array 12
+        enter 1  element of the array 22
+        enter 2  element of the array 1
+        enter 3  element of the array 23
+        enter 4  element of the array 7
+        enter 5  element of the array 3
+        enter 6  element of the array 0
+        enter 7  element of the array 2
+        enter 8  element of the array 7
+        enter 9  element of the array 23
+        1local maxima is 12local maxima is 22local maxima is 23local maxima is 2local maxima is 7local maxima is 23
+            </pre>
+    < /body>
+
+
+</html>

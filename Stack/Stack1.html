@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre><code>
+        #include &lt;stdio.h&gt;
+
+            #define MAX_SIZE 100
+            
+            int stack[MAX_SIZE];
+            int top = -1;
+            
+            int isEmpty() {
+                return (top == -1);
+            }
+            
+            int isFull() {
+                return (top == MAX_SIZE - 1);
+            }
+            
+            void push(int value) {
+                if (isFull()) {
+                    printf("Stack is full. Cannot push.\n");
+                    return;
+                }
+                stack[++top] = value;
+            }
+            
+            int pop() {
+                if (isEmpty()) {
+                    printf("Stack is empty. Cannot pop.\n");
+                    return -1;
+                }
+                return stack[top--];
+            }
+            
+            int peek() {
+                if (isEmpty()) {
+                    printf("Stack is empty. Cannot peek.\n");
+                    return -1;
+                }
+                return stack[top];
+            }
+            
+            int main() {
+                int choice, value;
+            
+                while (1) {
+                    printf("1. Push\n2. Pop\n3. Peek\n4. Exit\n");
+                    printf("Enter your choice: ");
+                    scanf("%d", &choice);
+            
+                    switch (choice) {
+                        case 1:
+                            printf("Enter value to push: ");
+                            scanf("%d", &value);
+                            push(value);
+                            break;
+                        case 2:
+                            printf("Popped: %d\n", pop());
+                            break;
+                        case 3:
+                            printf("Top element: %d\n", peek());
+                            break;
+                        case 4:
+                            printf("Exiting the program.\n");
+                            return 0;
+                        default:
+                            printf("Invalid choice. Please try again.\n");
+            }
+            }
+            }
+        </code></pre>
+        <h2>Output:</h2><br>
+        <img src="Stk1.png">
+</body>
+
+</html>
